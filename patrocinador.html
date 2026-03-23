@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal del Patrocinador — IV Congreso</title>
+<title>Portal del Patrocinador — IV Congreso Ingeniería Industrial</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -38,7 +38,12 @@ nav{
   position:sticky;top:0;z-index:200;
   box-shadow:0 3px 20px rgba(13,31,60,.35);
 }
-
+.nav-brand{
+  display:flex;align-items:center;gap:14px;
+  padding:0 30px 0 22px;
+  border-right:1px solid rgba(255,255,255,.1);
+  flex-shrink:0;
+}
 .nav-logo-circle{
   width:44px;height:44px;border-radius:50%;
   background:var(--orange);
@@ -48,9 +53,22 @@ nav{
 .nav-brand-text{line-height:1.15;}
 .nav-brand-text b{display:block;font-family:var(--display);font-size:17px;color:var(--gold);letter-spacing:.5px;font-weight:900;}
 .nav-brand-text small{display:block;font-size:9px;color:rgba(255,255,255,.45);letter-spacing:2.5px;text-transform:uppercase;margin-top:1px;}
+.nav-tabs{display:flex;flex:1;}
+.nav-tab{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:0 20px;cursor:pointer;
+  font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  border-bottom:3px solid transparent;
+  transition:all .2s;min-height:62px;
+}
+.nav-tab:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.04);}
+.nav-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.nav-tab .ti{font-size:18px;}
 
-
-
+/* ── PAGES ── */
+.page{display:none;}
+.page.active{display:block;}
 
 /* ── LOGIN ── */
 .login-page{
@@ -431,18 +449,7 @@ nav{
   .sponsor-hero{padding:36px 20px 30px;}
   .sponsor-hero h1{font-size:36px;}
 }
-.sponsor-hero{
-  background:var(--navy);
-  padding:32px 24px 28px;
-  text-align:center;position:relative;overflow:hidden;
-}
-.sponsor-hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 80px);
-}
-.sponsor-hero h1{font-family:var(--display);font-size:clamp(32px,7vw,54px);font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;margin-bottom:4px;}
-.hero-sub1{font-family:var(--display);font-size:clamp(12px,2.5vw,16px);font-weight:600;color:var(--orange);letter-spacing:4px;text-transform:uppercase;margin-bottom:4px;}
-.sponsor-hero h2{font-family:var(--display);font-size:clamp(16px,3.5vw,24px);font-weight:700;color:rgba(255,255,255,.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+/* ── HERO COUNTDOWN ── */
 .info-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.75);margin-bottom:16px;}
 .info-pill span{color:rgba(255,255,255,.35);}
 .countdown-wrap{display:inline-flex;align-items:center;gap:6px;background:rgba(13,31,60,.6);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:10px 20px;flex-wrap:wrap;justify-content:center;}
@@ -451,36 +458,43 @@ nav{
 .cd-num{font-family:var(--display);font-size:26px;font-weight:900;color:var(--white);line-height:1;display:block;}
 .cd-unit{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .cd-sep{font-family:var(--display);font-size:22px;color:var(--orange);font-weight:900;padding-bottom:8px;}
+.hero-sub1{font-family:var(--display);font-size:clamp(12px,2.5vw,16px);font-weight:600;color:var(--orange);letter-spacing:4px;text-transform:uppercase;margin-bottom:4px;}
 </style>
 </head>
 <body>
 
-<!-- ════════════════════ NAV ════════════════════ -->
 <nav style="background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:58px;box-shadow:0 3px 20px rgba(13,31,60,.35);position:sticky;top:0;z-index:200;">
   <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:42px;width:auto;object-fit:contain;" alt="Logo">
-
 </nav>
 
-<!-- PORTAL DEL PATROCINADOR -->
+<div class="sponsor-hero" style="padding:28px 24px 24px;">
+  <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:70px;width:auto;display:block;margin:0 auto 10px;object-fit:contain;background:transparent;" alt="Logo">
+  <h1 style="font-family:var(--display);font-size:clamp(32px,7vw,54px);font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;margin-bottom:4px;">IV CONGRESO</h1>
+  <div class="hero-sub1">Con énfasis en Logística</div>
+  <h2 style="font-family:var(--display);font-size:clamp(16px,3.5vw,22px);font-weight:700;color:rgba(255,255,255,.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Ingeniería Industrial</h2>
+  <div class="info-pill">
+    📍 Hotel Puerto Libre, Puerto Barrios <span>·</span> 25 de Abril, 2026
+  </div>
+  <div class="countdown-wrap">
+    <span class="cd-label">Faltan</span>
+    <div class="cd-block"><span class="cd-num" id="cd-d">--</span><div class="cd-unit">Días</div></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-block"><span class="cd-num" id="cd-h">--</span><div class="cd-unit">Hrs</div></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-block"><span class="cd-num" id="cd-m">--</span><div class="cd-unit">Min</div></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-block"><span class="cd-num" id="cd-s">--</span><div class="cd-unit">Seg</div></div>
+  </div>
+  <p style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.5);">Portal oficial de verificación y registro de material para patrocinadores</p>
+</div>
+
   <div class="sponsor-hero">
-    <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:80px;width:auto;display:block;margin:0 auto 10px;object-fit:contain;background:transparent;" alt="Logo">
-    <h1>IV CONGRESO</h1>
-    <div class="hero-sub1">Con énfasis en Logística</div>
-    <h2>Ingeniería Industrial</h2>
-    <div class="info-pill">
-      📍 Hotel Puerto Libre, Puerto Barrios <span>·</span> 25 de Abril, 2026
-    </div>
-    <div class="countdown-wrap">
-      <span class="cd-label">Faltan</span>
-      <div class="cd-block"><span class="cd-num" id="cd-d">--</span><div class="cd-unit">Días</div></div>
-      <span class="cd-sep">:</span>
-      <div class="cd-block"><span class="cd-num" id="cd-h">--</span><div class="cd-unit">Hrs</div></div>
-      <span class="cd-sep">:</span>
-      <div class="cd-block"><span class="cd-num" id="cd-m">--</span><div class="cd-unit">Min</div></div>
-      <span class="cd-sep">:</span>
-      <div class="cd-block"><span class="cd-num" id="cd-s">--</span><div class="cd-unit">Seg</div></div>
-    </div>
-    <p style="margin-top:14px;font-size:14px;color:rgba(255,255,255,.55);">Portal oficial de verificación y registro de material para patrocinadores</p>
+    <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:150px;width:auto;display:block;margin:0 auto 16px;object-fit:contain;background:transparent;" alt="Logo">
+    <!-- ESTE TEXTO ESTA COMO COMENTARIO EN VEZ DE EL SE COLOCA EL LOGO DE INDUSTRIAL-->
+    <!--<h1>IV CONGRESO</h1>-->
+    <!--<h2>Con énfasis en Logística</h2>-->
+    <!--<h2>Ingeniería Industrial</h2>-->
+    <p>Portal oficial de verificación y registro de material para patrocinadores</p>
   </div>
 
   <div class="sponsor-wrap">
@@ -601,314 +615,134 @@ nav{
   </div>
 </div>
 
+<!-- ════ MODAL: EDIT RECEIPT ════ -->
+<div class="modal-overlay" id="modal-edit-receipt">
+  <div class="modal modal-md">
+    <div class="modal-header">
+      <h3>✏ Editar Recibo <span id="edit-receipt-no-label"></span></h3>
+      <button class="modal-close" onclick="closeModal('modal-edit-receipt')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="edit-no">
+      <div class="fg">
+        <label>Nombre del Patrocinador</label>
+        <input type="text" id="edit-patron" placeholder="Nombre exacto">
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label>Lugar</label>
+          <input type="text" id="edit-lugar">
+        </div>
+        <div class="fg">
+          <label>Fecha</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <select id="edit-dia" style="padding:11px 8px;font-size:14px;"><option value="">Día</option></select>
+            <select id="edit-mes" style="padding:11px 8px;font-size:14px;" onchange="updateEditDias()">
+              <option value="">Mes</option>
+              <option value="1">Enero</option><option value="2">Febrero</option>
+              <option value="3">Marzo</option><option value="4">Abril</option>
+              <option value="5">Mayo</option><option value="6">Junio</option>
+              <option value="7">Julio</option><option value="8">Agosto</option>
+              <option value="9">Septiembre</option><option value="10">Octubre</option>
+              <option value="11">Noviembre</option><option value="12">Diciembre</option>
+            </select>
+            <select id="edit-anio" style="padding:11px 8px;font-size:14px;">
+              <option value="">Año</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Tipo de Plan</label>
+        <select id="edit-plan" onchange="onEditPlanChange()">
+          <option value="basico">Plan Básico — Q250.00</option>
+          <option value="premium">Plan Premium — Q500.00</option>
+        </select>
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label>Monto (Q)</label>
+          <input type="number" id="edit-monto" step="0.01" oninput="document.getElementById('edit-letras').value=numToLetras(this.value)">
+        </div>
+        <div class="fg">
+          <label>Monto en letras</label>
+          <input type="text" id="edit-letras" readonly>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Observaciones</label>
+        <textarea id="edit-obs" rows="2"></textarea>
+      </div>
+      <div id="edit-receipt-err" class="alert alert-danger" style="display:none;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-edit-receipt')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveEditReceipt()">💾 Guardar cambios</button>
+    </div>
+  </div>
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════
-// DATA STORE (localStorage)
-// ══════════════════════════════════════════
+// ── Config ──
+var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbw8LUW7PPFWXLtgXg5T7dPhaI9vcLTy5AhIj4y776W-52yLXsE52HKdADtscU_zDvhWpA/exec';
 var DB = {
   get: function(k,def){ try{ var v=localStorage.getItem('iv4_'+k); return v!==null?JSON.parse(v):def; }catch(e){return def;} },
   set: function(k,v){ try{ localStorage.setItem('iv4_'+k,JSON.stringify(v)); }catch(e){} }
 };
-
-// Init default users if not set
-(function(){
-  if(!DB.get('users',null)){
-    DB.set('users',[
-      {user:'admin',pass:'Congreso2025!',role:'admin'},
-      {user:'tesorero1',pass:'Tesoreria2025',role:'tesorero'},
-      {user:'tesorero2',pass:'Tesoreria2025',role:'tesorero'}
-    ]);
-  }
-})();
-
 var receipts = DB.get('receipts',[]);
-var currentUser = null;
-var currentReceipt = null;
-var selectedPlan = 'basico';
+var sheetsUrl = DB.get('sheets_url','') || SHEETS_URL_DEFAULT;
 var logoFile = null;
 var photoFiles = [];
-// URL hardcodeada — funciona en TODOS los dispositivos sin configuración
-var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbw8LUW7PPFWXLtgXg5T7dPhaI9vcLTy5AhIj4y776W-52yLXsE52HKdADtscU_zDvhWpA/exec';
-var sheetsUrl = DB.get('sheets_url','') || SHEETS_URL_DEFAULT;
 
+// ── Sanitiza fecha sin importar cómo llegó guardada ──
+function sanitizeFecha(r){
+  var dia=r.dia, mes=r.mes, anio=r.anio;
+  var MESES_NOM=['','Enero','Febrero','Marzo','Abril','Mayo','Junio',
+    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-
-// ══════════════════════════════════════════
-// AUTH
-// ══════════════════════════════════════════
-function doLogin(){
-  var u=document.getElementById('lu').value.trim();
-  var p=document.getElementById('lp').value;
-  var err=document.getEle<script>window.onload=function(){window.print();};<\/script>
-</body></html>`);
-  w.document.close();
-}
-
-// ══════════════════════════════════════════
-// RECEIPTS LIST
-// ══════════════════════════════════════════
-function renderReceiptsList(){
-  var el=document.getElementById('receipts-list');
-  document.getElementById('list-count-badge').textContent=receipts.length+' registro'+(receipts.length!==1?'s':'');
-  if(!receipts.length){ el.innerHTML='<div class="empty-state">No hay recibos registrados aún.<br>Genera el primero con el formulario.</div>'; return; }
-  el.innerHTML=[...receipts].reverse().map(r=>`
-    <div class="ri">
-      <div class="ri-no" onclick="viewReceipt('${r.no}')" style="cursor:pointer;">No.${r.no}</div>
-      <div style="flex:1;min-width:0;cursor:pointer;" onclick="viewReceipt('${r.no}')">
-        <div class="ri-name">${r.patron}</div>
-        <div class="ri-meta">${(function(){var f=sanitizeFecha(r);return f.dia+'/'+f.mes+'/'+f.anio;})()}&nbsp;·&nbsp;
-          <span class="badge ${r.plan==='basico'?'badge-basic':'badge-premium'}">${r.plan.toUpperCase()}</span>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div class="ri-amount">Q ${parseFloat(r.monto).toLocaleString('es-GT',{minimumFractionDigits:2})}</div>
-        <button class="btn btn-navy btn-sm" onclick="openEditReceipt('${r.no}')" title="Editar recibo" style="flex-shrink:0;background:var(--navy2);">✏</button>
-        <button class="btn btn-danger btn-sm" onclick="confirmDeleteReceipt('${r.no}')" title="Eliminar recibo" style="flex-shrink:0;">🗑</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function viewReceipt(no){
-  var r=receipts.find(x=>x.no===no); if(!r) return;
-  currentReceipt=r;
-  renderReceiptDoc(r);
-  document.getElementById('modal-receipt-no').textContent=r.no;
-  openModal('modal-receipt');
-}
-
-function updateStats(){
-  var basic=receipts.filter(r=>r.plan==='basico');
-  var prem=receipts.filter(r=>r.plan==='premium');
-  var total=receipts.reduce(function(s,r){return s+parseFloat(r.monto);},0);
-  document.getElementById('st-total').textContent=receipts.length;
-  document.getElementById('st-basic').textContent=basic.length;
-  document.getElementById('st-prem').textContent=prem.length;
-  document.getElementById('st-total-q').textContent='Q '+total.toLocaleString('es-GT',{minimumFractionDigits:2});
-  document.getElementById('st-last').textContent=receipts.length?'No.'+receipts[receipts.length-1].no:'—';
-}
-
-// ══════════════════════════════════════════
-// EDIT RECEIPT
-// ══════════════════════════════════════════
-function openEditReceipt(no){
-  var r=receipts.find(function(x){return x.no===no;});
-  if(!r) return;
-  document.getElementById('edit-no').value=r.no;
-  document.getElementById('edit-receipt-no-label').textContent='No.'+r.no;
-  document.getElementById('edit-patron').value=r.patron||'';
-  document.getElementById('edit-lugar').value=r.lugar||'';
-  document.getElementById('edit-plan').value=r.plan||'basico';
-  document.getElementById('edit-monto').value=parseFloat(r.monto)||'';
-  document.getElementById('edit-letras').value=r.letras||'';
-  document.getElementById('edit-obs').value=r.obs||'';
-  document.getElementById('edit-anio').value=r.anio||'';
-  document.getElementById('edit-mes').value=r.mes||'';
-  updateEditDias();
-  document.getElementById('edit-dia').value=r.dia||'';
-  document.getElementById('edit-receipt-err').style.display='none';
-  openModal('modal-edit-receipt');
-}
-
-function onEditPlanChange(){
-  var plan=document.getElementById('edit-plan').value;
-  var monto=plan==='basico'?250:500;
-  document.getElementById('edit-monto').value=monto.toFixed(2);
-  document.getElementById('edit-letras').value=numToLetras(monto);
-}
-
-function saveEditReceipt(){
-  var no=document.getElementById('edit-no').value;
-  var patron=document.getElementById('edit-patron').value.trim();
-  var lugar=document.getElementById('edit-lugar').value.trim();
-  var dia=document.getElementById('edit-dia').value;
-  var mes=document.getElementById('edit-mes').value;
-  var anio=document.getElementById('edit-anio').value;
-  var plan=document.getElementById('edit-plan').value;
-  var monto=parseFloat(document.getElementById('edit-monto').value)||0;
-  var letras=document.getElementById('edit-letras').value.trim();
-  var obs=document.getElementById('edit-obs').value.trim();
-  var err=document.getElementById('edit-receipt-err');
-
-  if(!patron||!monto){
-    err.style.display='block';
-    err.textContent='El nombre del patrocinador y el monto son obligatorios.';
-    return;
+  // Si dia parece una fecha completa (más de 2 chars y no es número puro)
+  if(dia && (String(dia).length > 2 || isNaN(parseInt(dia)))) {
+    // Intentar parsear desde el string completo
+    var d = new Date(String(dia));
+    if(!isNaN(d.getTime())) {
+      dia  = d.getDate();
+      mes  = d.getMonth() + 1;
+      anio = d.getFullYear();
+    }
   }
-  err.style.display='none';
-
-  var idx=receipts.findIndex(function(x){return x.no===no;});
-  if(idx===-1){ showToast('⚠ No se encontró el recibo.'); return; }
-
-  var updated={
-    no:no, patron:patron, lugar:lugar,
-    dia:dia, mes:mes, anio:anio,
-    monto:monto.toFixed(2), letras:letras,
-    plan:plan, obs:obs, ts:receipts[idx].ts
+  // Si mes parece nombre de mes en inglés (Jan, Feb, Mar...)
+  var MESES_EN=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+  if(mes && isNaN(parseInt(mes))) {
+    var idx = MESES_EN.indexOf(String(mes).toLowerCase().slice(0,3));
+    if(idx !== -1) mes = idx + 1;
+  }
+  // Si anio tiene más de 4 dígitos, limpiar
+  if(String(anio).length > 4) {
+    var d2 = new Date(r.dia);
+    if(!isNaN(d2.getTime())) anio = d2.getFullYear();
+  }
+  return {
+    dia:  parseInt(dia)  || '',
+    mes:  parseInt(mes)  || '',
+    anio: parseInt(anio) || '',
+    mesNom: MESES_NOM[parseInt(mes)] || mes || ''
   };
-  receipts[idx]=updated;
-  DB.set('receipts',receipts);
-
-  // Update in Google Sheets: delete old row + insert updated
-  if(sheetsUrl){
-    // First delete
-    var p1=new URLSearchParams();
-    p1.append('type','delete'); p1.append('no',no);
-    fetch(sheetsUrl,{method:'POST',mode:'no-cors',body:p1}).catch(function(){});
-    // Then re-insert updated
-    setTimeout(function(){
-      var p2=new URLSearchParams();
-      p2.append('type','receipt');
-      p2.append('no',no);
-      p2.append('fecha',dia+'/'+mes+'/'+anio);
-      p2.append('lugar',lugar);
-      p2.append('patrocinador',patron);
-      p2.append('monto','Q'+monto.toFixed(2));
-      p2.append('letras',letras);
-      p2.append('plan',plan);
-      p2.append('obs',obs);
-      fetch(sheetsUrl,{method:'POST',mode:'no-cors',body:p2}).catch(function(){});
-    },1200);
+}
+var PLANS={
+  basico:{
+    label:'Plan Básico',price:'Q250.00',
+    items:['Espacio en afiche','Anuncio en redes sociales (en toda la publicidad hasta el día del evento)','Espacio en manta vínilica','Publicidad en pantalla (en video, durante el evento)']
+  },
+  premium:{
+    label:'Plan Premium',price:'Q500.00',
+    items:['Stand publicitario (2.0×1.50m)','Espacio en afiche','Anuncio en redes sociales (en toda la publicidad hasta el día del evento)','Espacio en manta vínilica','Publicidad en pantalla (en video, antes y durante el evento)','Acceso a las conferencias (no incluye alimentación)']
   }
-
-  closeModal('modal-edit-receipt');
-  renderReceiptsList();
-  updateStats();
-  showToast('✓ Recibo No.'+no+' actualizado correctamente.');
-}
-
-// ══════════════════════════════════════════
-// DELETE RECEIPT
-// ══════════════════════════════════════════
-function confirmDeleteReceipt(no){
-  var r=receipts.find(function(x){return x.no===no;});
-  if(!r) return;
-  if(!confirm('¿Eliminar el recibo No.'+no+' de "'+r.patron+'"?\n\nEsta acción también lo eliminará de Google Sheets.')) return;
-  deleteReceipt(no);
-}
-
-function deleteReceipt(no){
-  // Remove from local array
-  receipts=receipts.filter(function(r){return r.no!==no;});
-  DB.set('receipts',receipts);
-  // Remove from Google Sheets
-  if(sheetsUrl){
-    var params=new URLSearchParams();
-    params.append('type','delete');
-    params.append('no', no);
-    fetch(sheetsUrl,{method:'POST',mode:'no-cors',body:params}).catch(function(){});
-  }
-  renderReceiptsList();
-  updateStats();
-  showToast('🗑 Recibo No.'+no+' eliminado correctamente.');
-}
-
-// ══════════════════════════════════════════
-// LOAD RECEIPTS FROM SHEETS (multi-device sync)
-// ══════════════════════════════════════════
-function loadReceiptsFromSheets(){
-  // Always show local first for instant response
-  renderReceiptsList();
-  updateStats();
-  updateNextBadge();
-
-  if(!sheetsUrl) return;
-
-  var url = sheetsUrl + '?action=list';
-  fetch(url)
-    .then(function(res){ return res.json(); })
-    .then(function(data){
-      if(!data.ok || !data.receipts) return;
-      var remote = data.receipts;
-      // Merge: add any remote receipts not in local cache
-      var changed = false;
-      remote.forEach(function(r){
-        // Sanitize fecha coming from Sheets (might be full date string)
-        var sf = sanitizeFecha(r);
-        var exists = receipts.find(function(x){ return x.no === r.no; });
-        if(!exists){
-          receipts.push({
-            no:     r.no,
-            patron: r.patron,
-            lugar:  r.lugar,
-            dia:    sf.dia,
-            mes:    sf.mes,
-            anio:   sf.anio,
-            monto:  r.monto,
-            letras: r.letras,
-            plan:   r.plan,
-            obs:    r.obs||'',
-            ts:     Date.now()
-          });
-          changed = true;
-        } else {
-          // Update existing with clean date if corrupted
-          if(String(exists.dia).length > 2 || isNaN(parseInt(exists.dia))){
-            exists.dia = sf.dia; exists.mes = sf.mes; exists.anio = sf.anio;
-            changed = true;
-          }
-        }
-      });
-      // Also remove local receipts deleted elsewhere
-      var remoteNos = remote.map(function(r){ return r.no; });
-      var before = receipts.length;
-      receipts = receipts.filter(function(r){ return remoteNos.indexOf(r.no) !== -1; });
-      if(receipts.length !== before) changed = true;
-
-      if(changed){
-        DB.set('receipts', receipts);
-        renderReceiptsList();
-        updateStats();
-        updateNextBadge();
-        showToast('✓ Recibos sincronizados con Google Sheets ('+receipts.length+' registros)');
-      } else {
-        showToast('✓ Lista actualizada — '+receipts.length+' recibo'+(receipts.length!==1?'s':''));
-      }
-    })
-    .catch(function(){
-      // Sheets not reachable – use local cache silently
-    });
-}
-
-// ══════════════════════════════════════════
-// GOOGLE SHEETS INTEGRATION
-// ══════════════════════════════════════════
-function sendToSheets(r){
-  if(!sheetsUrl) return;
-  // Use form-encoded POST to avoid CORS preflight – Apps Script handles both
-  var params=new URLSearchParams();
-  params.append('type','receipt');
-  params.append('no',     String(r.no));
-  params.append('fecha',  r.dia+'/'+r.mes+'/'+r.anio);
-  params.append('lugar',  r.lugar);
-  params.append('patrocinador', r.patron);
-  params.append('monto',  parseFloat(r.monto).toFixed(2));
-  params.append('letras', r.letras);
-  params.append('plan',   r.plan);
-  params.append('obs',    r.obs||'');
-  fetch(sheetsUrl,{
-    method:'POST',mode:'no-cors',
-    body:params
-  }).catch(function(){});
-}
-
-function sendFileToDrive(sponsor,recibo,plan,filename,base64content,mimeType){
-  if(!sheetsUrl) return Promise.resolve();
-  var params=new URLSearchParams();
-  params.append('type','file');
-  params.append('sponsor', sponsor);
-  params.append('recibo',  recibo||'');
-  params.append('plan',    plan||'');
-  params.append('filename', filename);
-  params.append('content',  base64content);
-  params.append('mimeType', mimeType);
-  return fetch(sheetsUrl,{
-    method:'POST', mode:'no-cors', body:params
-  }).catch(function(){});
-}
+};
 
 // ══════════════════════════════════════════
 // SPONSOR VERIFICATION
@@ -1039,7 +873,6 @@ function resetSponsor(){
   logoFile=null; photoFiles=[];
   window._currentSponsorReceipt=null;
 }
-
 // ══════════════════════════════════════════
 // UPLOADS
 // ══════════════════════════════════════════
@@ -1097,15 +930,13 @@ function submitMaterial(){
   var r=window._currentSponsorReceipt;
   var sponsorName=r?r.patron:'Patrocinador';
 
-  var recibo=r?r.no:'';
-  var plan=r?r.plan:'';
   var promises=[];
   promises.push(fileToBase64(logoFile).then(function(b64){
-    return sendFileToDrive(sponsorName,recibo,plan,logoFile.name,b64,logoFile.type);
+    return sendFileToDrive(sponsorName, logoFile.name, b64, logoFile.type);
   }));
-  photoFiles.forEach(function(f,i){
+  photoFiles.forEach(function(f){
     promises.push(fileToBase64(f).then(function(b64){
-      return sendFileToDrive(sponsorName,recibo,plan,f.name,b64,f.type);
+      return sendFileToDrive(sponsorName, f.name, b64, f.type);
     }));
   });
   Promise.all(promises).then(function(){
@@ -1124,58 +955,28 @@ function submitMaterial(){
     showToast('✓ Material recibido localmente. Configura Google Drive para envío automático.');
   });
 }
-
 // ══════════════════════════════════════════
-// RESET SYSTEM
+// DRIVE UPLOAD
 // ══════════════════════════════════════════
-function openResetModal(){
-  document.getElementById('reset-confirm-input').value='';
-  document.getElementById('reset-err').style.display='none';
-  var btn=document.getElementById('btn-confirm-reset');
-  btn.disabled=true;
-  btn.style.opacity='.4';
-  btn.style.cursor='not-allowed';
-  openModal('modal-reset');
+function sendFileToDrive(sponsor, filename, base64content, mimeType){
+  if(!sheetsUrl) return Promise.resolve();
+  var params = new URLSearchParams();
+  params.append('type',     'file');
+  params.append('sponsor',  sponsor);
+  params.append('filename', filename);
+  params.append('content',  base64content);
+  params.append('mimeType', mimeType);
+  return fetch(sheetsUrl, {method:'POST', mode:'no-cors', body:params})
+    .catch(function(){});
 }
 
-function checkResetConfirm(val){
-  var btn=document.getElementById('btn-confirm-reset');
-  if(val.trim()==='RESETEAR'){
-    btn.disabled=false;
-    btn.style.opacity='1';
-    btn.style.cursor='pointer';
-  } else {
-    btn.disabled=true;
-    btn.style.opacity='.4';
-    btn.style.cursor='not-allowed';
-  }
-}
-
-function executeReset(){
-  var btn=document.getElementById('btn-confirm-reset');
-  btn.textContent='Borrando...';
-  btn.disabled=true;
-
-  // 1. Clear local storage
-  receipts=[];
-  DB.set('receipts',[]);
-
-  // 2. Delete ALL rows from Google Sheets (keep header row)
-  if(sheetsUrl){
-    var params=new URLSearchParams();
-    params.append('type','reset');
-    fetch(sheetsUrl,{method:'POST',mode:'no-cors',body:params}).catch(function(){});
-  }
-
-  // 3. Update UI
-  setTimeout(function(){
-    closeModal('modal-reset');
-    renderReceiptsList();
-    updateStats();
-    updateNextBadge();
-    showToast('✓ Sistema reseteado. Todos los recibos han sido eliminados.');
-    btn.textContent='🗑 Confirmar Reset Total';
-  },800);
+function fileToBase64(file){
+  return new Promise(function(res,rej){
+    var r = new FileReader();
+    r.onload = function(e){ res(e.target.result.split(',')[1]); };
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
 }
 
 // ══════════════════════════════════════════
@@ -1186,7 +987,6 @@ function closeModal(id){ document.getElementById(id).classList.remove('open'); }
 document.addEventListener('click',function(e){
   if(e.target.classList.contains('modal-overlay')) e.target.classList.remove('open');
 });
-
 // ══════════════════════════════════════════
 // TOAST
 // ══════════════════════════════════════════
@@ -1198,36 +998,33 @@ function showToast(msg){
   _toastTimer=setTimeout(function(){ t.classList.remove('show'); },3800);
 }
 
-// ══════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════
-document.addEventListener('DOMContentLoaded',function(){
-  // patrocinador standalone page
-});
-
 // ── Cuenta regresiva ──
-var CD_TARGET=new Date('2026-04-25T08:00:00').getTime();
+var CD_TARGET = new Date('2026-04-25T08:00:00').getTime();
 function tickCD(){
-  var diff=CD_TARGET-Date.now();
-  if(diff<=0){
-    var cw=document.querySelector('.countdown-wrap');
-    if(cw) cw.innerHTML='<span style="color:var(--gold);font-family:var(--display);font-size:18px;font-weight:900;">¡El congreso ha comenzado!</span>';
+  var diff = CD_TARGET - Date.now();
+  if(diff <= 0){
+    var cw = document.querySelector('.countdown-wrap');
+    if(cw) cw.innerHTML = '<span style="color:var(--gold);font-family:var(--display);font-size:18px;font-weight:900;">¡El congreso ha comenzado!</span>';
     return;
   }
   var d=Math.floor(diff/86400000);
   var h=Math.floor((diff%86400000)/3600000);
   var m=Math.floor((diff%3600000)/60000);
   var s=Math.floor((diff%60000)/1000);
-  var dd=document.getElementById('cd-d');
-  var dh=document.getElementById('cd-h');
-  var dm=document.getElementById('cd-m');
-  var ds=document.getElementById('cd-s');
-  if(dd) dd.textContent=String(d).padStart(2,'0');
-  if(dh) dh.textContent=String(h).padStart(2,'0');
-  if(dm) dm.textContent=String(m).padStart(2,'0');
-  if(ds) ds.textContent=String(s).padStart(2,'0');
+  var el_d=document.getElementById('cd-d');
+  var el_h=document.getElementById('cd-h');
+  var el_m=document.getElementById('cd-m');
+  var el_s=document.getElementById('cd-s');
+  if(el_d) el_d.textContent=String(d).padStart(2,'0');
+  if(el_h) el_h.textContent=String(h).padStart(2,'0');
+  if(el_m) el_m.textContent=String(m).padStart(2,'0');
+  if(el_s) el_s.textContent=String(s).padStart(2,'0');
 }
-tickCD();setInterval(tickCD,1000);
+tickCD(); setInterval(tickCD, 1000);
+
+document.addEventListener('DOMContentLoaded', function(){
+  tickCD();
+});
 </script>
 </body>
 </html>
