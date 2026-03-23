@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IV Congreso Ingeniería Industrial — Puerto Barrios</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E8580A;--gold:#F5A623;--navy:#0D1F3C;--navy2:#162B52;--navy3:#1E3A6E;
+  --white:#FFFFFF;--bg:#F0F2F7;--border:#D1D8E8;--text:#0D1F3C;--muted:#6B7A99;
+  --font:'Barlow',sans-serif;--display:'Barlow Condensed',sans-serif;
+  --radius:12px;--radius-lg:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;}
+nav{
+  background:var(--navy);display:flex;align-items:center;
+  padding:0 28px;height:58px;
+  box-shadow:0 3px 20px rgba(13,31,60,.35);
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{height:42px;width:auto;object-fit:contain;}
+.hero{
+  background:var(--navy);padding:38px 24px 34px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 80px);
+}
+.hero-inner{position:relative;z-index:1;}
+.hero h1{
+  font-family:var(--display);font-size:clamp(36px,8vw,64px);
+  font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;margin-bottom:4px;
+}
+.hero-sub1{
+  font-family:var(--display);font-size:clamp(13px,3vw,17px);
+  font-weight:600;color:var(--orange);letter-spacing:4px;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.hero-sub2{
+  font-family:var(--display);font-size:clamp(18px,4vw,26px);
+  font-weight:700;color:rgba(255,255,255,.85);letter-spacing:3px;
+  text-transform:uppercase;margin-bottom:18px;
+}
+.info-pill{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  border-radius:50px;padding:9px 22px;
+  font-size:14px;color:rgba(255,255,255,.75);margin-bottom:24px;
+}
+.info-pill span{color:rgba(255,255,255,.35);}
+.countdown-wrap{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(13,31,60,.6);border:1px solid rgba(255,255,255,.12);
+  border-radius:50px;padding:12px 24px;
+  flex-wrap:wrap;justify-content:center;
+}
+.cd-label{
+  font-family:var(--display);font-size:13px;font-weight:700;
+  color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-right:6px;
+}
+.cd-block{text-align:center;min-width:50px;}
+.cd-num{font-family:var(--display);font-size:30px;font-weight:900;color:var(--white);line-height:1;display:block;}
+.cd-unit{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.cd-sep{font-family:var(--display);font-size:24px;color:var(--orange);font-weight:900;padding-bottom:10px;}
+.menu-section{
+  max-width:680px;margin:0 auto;padding:36px 24px 56px;
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;
+}
+@media(max-width:540px){.menu-section{grid-template-columns:1fr;padding:24px 18px 44px;}}
+.menu-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  border:1px solid var(--border);padding:34px 24px;text-align:center;
+  text-decoration:none;color:inherit;
+  transition:all .25s;cursor:pointer;display:block;
+  box-shadow:0 2px 12px rgba(13,31,60,.06);
+}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,31,60,.14);border-color:var(--orange);}
+.menu-card-icon{
+  width:68px;height:68px;border-radius:50%;
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;font-size:30px;
+}
+.treasury-icon{background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%);}
+.sponsor-icon{background:linear-gradient(135deg,var(--orange) 0%,#C94708 100%);}
+.menu-card h2{font-family:var(--display);font-size:21px;font-weight:900;color:var(--navy);letter-spacing:.5px;margin-bottom:8px;}
+.menu-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+.menu-card .arrow{
+  display:inline-block;margin-top:18px;
+  font-family:var(--display);font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:var(--orange);
+  transition:letter-spacing .2s;
+}
+.menu-card:hover .arrow{letter-spacing:2.5px;}
+footer{
+  text-align:center;padding:18px;font-size:12px;color:var(--muted);
+  border-top:1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" class="nav-logo" alt="Logo IV Congreso">
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>IV CONGRESO</h1>
+    <div class="hero-sub1">Con énfasis en Logística</div>
+    <div class="hero-sub2">Ingeniería Industrial</div>
+    <div class="info-pill">
+      📍 Hotel Puerto Libre, Puerto Barrios <span>·</span> 25 de Abril, 2026
+    </div>
+    <div class="countdown-wrap">
+      <span class="cd-label">Faltan</span>
+      <div class="cd-block"><span class="cd-num" id="cd-d">--</span><div class="cd-unit">Días</div></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-h">--</span><div class="cd-unit">Hrs</div></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-m">--</span><div class="cd-unit">Min</div></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-s">--</span><div class="cd-unit">Seg</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="menu-section">
+  <a href="tesoreria.html" class="menu-card">
+    <div class="menu-card-icon treasury-icon">🏦</div>
+    <h2>Tesorería</h2>
+    <p>Gestión de recibos y control de patrocinadores del congreso.</p>
+    <div class="arrow">Ingresar →</div>
+  </a>
+  <a href="patrocinador.html" class="menu-card">
+    <div class="menu-card-icon sponsor-icon">🤝</div>
+    <h2>Portal del Patrocinador</h2>
+    <p>Verifica tu patrocinio y sube tu material publicitario.</p>
+    <div class="arrow">Ingresar →</div>
+  </a>
+</div>
+
+<footer>
+  IV Congreso de Ingeniería Industrial · Universidad Mariano Gálvez · Puerto Barrios, Izabal
+</footer>
+
+<script>
+var TARGET=new Date('2026-04-25T08:00:00').getTime();
+function tick(){
+  var now=Date.now(),diff=TARGET-now;
+  if(diff<=0){
+    document.querySelector('.countdown-wrap').innerHTML='<span style="color:var(--gold);font-family:var(--display);font-size:20px;font-weight:900;">¡El congreso ha comenzado!</span>';
+    return;
+  }
+  var d=Math.floor(diff/86400000);
+  var h=Math.floor((diff%86400000)/3600000);
+  var m=Math.floor((diff%3600000)/60000);
+  var s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
