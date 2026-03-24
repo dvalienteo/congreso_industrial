@@ -467,13 +467,10 @@ nav{
   <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:42px;width:auto;object-fit:contain;" alt="Logo">
 </nav>
 
-<div class="sponsor-hero">
-    <img src="https://i.ibb.co/Kx7c7gDZ/01-Logo-2026-3.png" style="height:150px;width:auto;display:block;margin:0 auto 16px;object-fit:contain;background:transparent;" alt="Logo">
-    <!-- ESTE TEXTO ESTA COMO COMENTARIO EN VEZ DE EL SE COLOCA EL LOGO DE INDUSTRIAL-->
-    <!-- <div class="sponsor-hero" style="padding:28px 24px 24px;">
+<div class="sponsor-hero" style="padding:28px 24px 24px;">
   <h1 style="font-family:var(--display);font-size:clamp(32px,7vw,54px);font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;margin-bottom:4px;">IV CONGRESO</h1>
   <div class="hero-sub1">Con énfasis en Logística</div>
-  <h2 style="font-family:var(--display);font-size:clamp(16px,3.5vw,22px);font-weight:700;color:rgba(255,255,255,.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Ingeniería Industrial</h2>-->
+  <h2 style="font-family:var(--display);font-size:clamp(16px,3.5vw,22px);font-weight:700;color:rgba(255,255,255,.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">Ingeniería Industrial</h2>
   <div class="info-pill">
     📍 Hotel Puerto Libre, Puerto Barrios <span>·</span> 25 de Abril, 2026
   </div>
@@ -684,7 +681,7 @@ nav{
 
 <script>
 // ── Config ──
-var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbzzHwErT-vt8amAO33WOceL5PMi6ByhTEEQ_rZwTTDVTtsKlS6autKBY18rdif4bZtdcA/exec';
+var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbw8LUW7PPFWXLtgXg5T7dPhaI9vcLTy5AhIj4y776W-52yLXsE52HKdADtscU_zDvhWpA/exec';
 var DB = {
   get: function(k,def){ try{ var v=localStorage.getItem('iv4_'+k); return v!==null?JSON.parse(v):def; }catch(e){return def;} },
   set: function(k,v){ try{ localStorage.setItem('iv4_'+k,JSON.stringify(v)); }catch(e){} }
@@ -955,13 +952,15 @@ function submitMaterial(){
 // ══════════════════════════════════════════
 function sendFileToDrive(sponsor, filename, base64content, mimeType){
   if(!sheetsUrl) return Promise.resolve();
+  // Pass sponsor in URL so it always arrives regardless of no-cors body parsing
+  var urlWithSponsor = sheetsUrl + '?type=file&sponsor=' + encodeURIComponent(sponsor);
   var params = new URLSearchParams();
   params.append('type',     'file');
   params.append('sponsor',  sponsor);
   params.append('filename', filename);
   params.append('content',  base64content);
   params.append('mimeType', mimeType);
-  return fetch(sheetsUrl, {method:'POST', mode:'no-cors', body:params})
+  return fetch(urlWithSponsor, {method:'POST', mode:'no-cors', body:params})
     .catch(function(){});
 }
 
