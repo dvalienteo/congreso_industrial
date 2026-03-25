@@ -703,7 +703,7 @@ nav{
 
 <script>
 // ── Config ──
-var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbwVcSd-RCPvGlRC_s7z-9TO6G1XWkAaC9e-RO_cCmGXRzzgn_zpOkX0JSB_jXkDrjnaNQ/exec';
+var SHEETS_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbzECrUsJZIsEW0-m239BV4h4c27UNH2CRNYklbpr7fquyTZB7gCYvpsFJzt1yESqadIPg/exec';
 var DB = {
   get: function(k,def){ try{ var v=localStorage.getItem('iv4_'+k); return v!==null?JSON.parse(v):def; }catch(e){return def;} },
   set: function(k,v){ try{ localStorage.setItem('iv4_'+k,JSON.stringify(v)); }catch(e){} }
@@ -943,17 +943,18 @@ function submitMaterial(){
   err.style.display='none';
   var r=window._currentSponsorReceipt;
   var sponsorName=r?r.patron:'Patrocinador';
+  var receiptNo=r?String(r.no).padStart(3,'0'):'';
 
   // Mostrar modal de carga al instante
   openModal('modal-uploading');
 
   var promises=[];
   promises.push(fileToBase64(logoFile).then(function(b64){
-    return sendFileToDrive(sponsorName, logoFile.name, b64, logoFile.type);
+    return sendFileToDrive(receiptNo, logoFile.name, b64, logoFile.type);
   }));
   photoFiles.forEach(function(f){
     promises.push(fileToBase64(f).then(function(b64){
-      return sendFileToDrive(sponsorName, f.name, b64, f.type);
+      return sendFileToDrive(receiptNo, f.name, b64, f.type);
     }));
   });
   Promise.all(promises).then(function(){
@@ -977,7 +978,7 @@ function submitMaterial(){
 // ══════════════════════════════════════════
 // DRIVE UPLOAD
 // ══════════════════════════════════════════
-function sendFileToDrive(sponsor, filename, base64content, mimeType){
+function sendFileToDrive(no, filename, base64content, mimeType){
   if(!sheetsUrl) return Promise.resolve();
   // Use a hidden form POST - this bypasses no-cors restrictions
   // and allows Apps Script to read all parameters correctly
@@ -985,14 +986,13 @@ function sendFileToDrive(sponsor, filename, base64content, mimeType){
     try {
       var form = document.createElement('form');
       form.method = 'POST';
-      // Sponsor name also in URL query param — garantiza que llegue aunque el body falle
-      form.action = sheetsUrl + '?sponsor=' + encodeURIComponent(sponsor);
+      form.action = sheetsUrl;
       form.target = 'upload_frame_' + Date.now();
       form.style.display = 'none';
 
       var fields = {
         type:     'file',
-        sponsor:  sponsor,
+        no:       no,
         filename: filename,
         content:  base64content,
         mimeType: mimeType
